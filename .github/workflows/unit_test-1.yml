@@ -20,7 +20,7 @@ jobs:
           echo "List files"
           ls -l
       - name: The third step
-        run: cat math_operations.py      
+        run: cat README.md     
 
     
 
