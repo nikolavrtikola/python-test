@@ -11,6 +11,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
       # Step 1: Check out the code from the repository
       - name: The name of the first step
         run: echo "The text from the first step"
@@ -19,12 +22,9 @@ jobs:
         run: |
           echo "List files"
           ls -l
-
-      - name: Checkout repository
-        uses: actions/checkout@v2
       
       - name: Print The readme file 
-        run: cat README.md     
+        run: cat ../src/math_operations.py   
 
     
 
