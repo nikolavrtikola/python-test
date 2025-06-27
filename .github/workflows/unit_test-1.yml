@@ -13,7 +13,7 @@ jobs:
     steps:
       # Step 1: Check out the code from the repository
       - name: The name of the first step
-        run: echo "The text from the first step
+        run: echo "The text from the first step"
       
       - name: The name of the second step
         run: |
