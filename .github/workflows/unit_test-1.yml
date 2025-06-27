@@ -24,7 +24,7 @@ jobs:
           ls -l
       
       - name: Print The readme file 
-        run: cat ../src/math_operations.py   
+        run: cat /src/math_operations.py   
 
     
 
