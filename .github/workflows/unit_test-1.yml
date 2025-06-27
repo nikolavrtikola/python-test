@@ -19,7 +19,11 @@ jobs:
         run: |
           echo "List files"
           ls -l
-      - name: The third step
+
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      
+      - name: Print The readme file 
         run: cat README.md     
 
     
