@@ -20,7 +20,7 @@ jobs:
           echo "List files"
           ls -l
           cat src/math_operations.py  
-           
+
       - name: Install cosway program
         run: sudo apt-get install cowsay -y
       
@@ -31,7 +31,7 @@ jobs:
         run: grep -i "dragon" dragon.txt
       
       - name: Read file
-        run: cat daragon.txt
+        run: cat dragon.txt
       
       - name: List the Repository files
         run:  ls -ltra
