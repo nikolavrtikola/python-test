@@ -5,31 +5,26 @@ on:
   push:
     branches:
       - main
-  pull_request:
-    branches:
-      - main
-
+env:
+    CONTAINER_REGISTRY: docker.io
+    IMAGE_NAME: github-actions-nginx  
 jobs:
-  test:
+  Docker:
     runs-on: ubuntu-latest
-
     steps:
-      # Step 1: Check out the code from the repository
-      - name: Check out code
-        uses: actions/checkout@v2
+    - name: Docker Build
+      run: echo docker build -t ${{ env.CONTAINER_REGISTRY }}/${{ vars.DOCKER_USERNAME }}/$IMAGE_NAME:latest
 
-      # Step 2: Set up Python environment
-      - name: Set up Python
-        uses: actions/setup-python@v2
-        with:
-          python-version: '3.8'
+    - name: Docker Login
+      run: echo docker login --username=${{ vars.DOCKER_USERNAME }} --password=${{ secrets.DOCKER_PASSWORD }}
+    
+    - name: Docker Publish
+      run: echo docker push $CONTAINER_REGISTRY/${{ vars.DOCKER_USERNAME }}/$IMAGE_NAME:latest
+  
 
-      # Step 3: Install dependencies
-      - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install -r requirements.txt
-
-      # Step 4: Run tests
-      - name: Run tests
-        run: pytest
+  deploy:
+    needs: Docker
+    runs-on: ubuntu-latest
+    steps:
+      - name: Docker Run
+        run: echo docker run -d -p 8000:80 ${{env.CONTAINER_REGISTRY}}/${{vars.DOCKER_USERNAME}}/${{env.IMAGE_NAME}}:latest
