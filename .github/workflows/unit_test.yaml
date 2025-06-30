@@ -2,9 +2,9 @@ name: Python CI
 
 # Trigger the workflow on any push to the main branch or pull request
 on:
-  push:
-    branches:
-      - main
+  schedule:
+   - cron: '*/1 * * * *'
+
 env:
     CONTAINER_REGISTRY: docker.io
     IMAGE_NAME: github-actions-nginx  
