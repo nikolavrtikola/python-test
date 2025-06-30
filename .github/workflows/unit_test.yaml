@@ -26,5 +26,5 @@ jobs:
     needs: Docker
     runs-on: ubuntu-latest
     steps:
-      - name: Docker Run !!!!
+      - name: Docker Run !!!
         run: echo docker run -d -p 8000:80 ${{env.CONTAINER_REGISTRY}}/${{vars.DOCKER_USERNAME}}/${{env.IMAGE_NAME}}:latest
