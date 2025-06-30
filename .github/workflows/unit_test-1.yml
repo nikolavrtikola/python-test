@@ -18,7 +18,7 @@ jobs:
         run: cowsay -f dragon "Run for cover, I am a DRAGON....RAWR" >> dragon.txt
       
       - name: Upload the dragon.file to be used in the next jobs
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: dragon-fly
           path: dragon.txt
@@ -30,7 +30,7 @@ jobs:
 
     steps:
       - name: Download dragon.txt
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: dragon-fly
       - name: If The file dragon.txt exist
@@ -43,7 +43,7 @@ jobs:
     
     steps:
       - name: Printing the dragon.txt file
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: dragon-fly
       - name: Print the file
