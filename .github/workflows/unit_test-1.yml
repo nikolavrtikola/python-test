@@ -22,9 +22,7 @@ jobs:
         run: |
           echo "List files"
           ls -l
-      
-      - name: Print The readme file 
-        run: cat src/math_operations.py   
+          cat src/math_operations.py   
 
     
 
